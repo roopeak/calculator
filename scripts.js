@@ -8,6 +8,7 @@ const clearBtn = document.getElementById('clear');
 const equalBtn = document.getElementById('equal');
 
 
+
 let number = buttons.forEach(btn => {
     btn.addEventListener('click', function() {
         inputNumber(this.textContent)
@@ -32,7 +33,6 @@ let operator = buttons.forEach(btn => {
 const inputOperator = operator => {
     const screenOperator = screenDisplay.innerHTML;
     screenDisplay.innerHTML = operator;
-
 }
 
 
@@ -58,8 +58,8 @@ function divide(a, b) {
 
 
 function operate(operator) {
-    let a = screenDisplay.textContent;
-    let b = screenDisplay.textContent;
+    let a = '';
+    let b = '';
 
     if(operator == '+')
         prompt('Hello')
@@ -72,11 +72,7 @@ function operate(operator) {
 }
 
 
-function appendNumber() {
-    
-}
 add(5,5);
 subtract(5,5);
 multiply(5,5);
 divide(5,5);
-operate();
