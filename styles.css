@@ -1,3 +1,8 @@
-.screenDisplay {
+/* .calcDisplay {
     height: 30px;
+    border: 1px solid black;
+} */
+
+.calculator-grid {
+    border: 1px solid black; 
 }
