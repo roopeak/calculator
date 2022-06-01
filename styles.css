@@ -1,8 +1,20 @@
-/* .calcDisplay {
-    height: 30px;
-    border: 1px solid black;
-} */
+.calc-display {
+    height: 300px;
+    /* border: 1px solid black; */
+}
 
 .calculator-grid {
     border: 1px solid black; 
+}
+
+.previous-operand {
+    height: 100px;
+    width: 300px;
+    border: 2px solid black;
+}
+
+.current-operand {
+    height: 100px;
+    width: 300px;
+    border: 2px solid black;
 }
