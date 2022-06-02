@@ -66,6 +66,10 @@ function clearScreen() {
     previousOperand.textContent = '';
 }
 
+// TODO: Delete button to delete numbers.
+function delNum() {
+
+}
 
 function add(a, b) {
     return a + b;
