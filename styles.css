@@ -6,51 +6,53 @@ body {
 }
 
 .calculator-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100px;
     border: 1px solid black;
 }
 
 .calc-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px; 
     background-color: white;
-    height: 120px;
+    height: 85px;
     width: 290px;
+
 }
 
 .calculator-grid {
     width: 300px;
     height: 390px;
     padding: 15px;
-    border: 1px solid blue;
+    background-color: #414a4c;
 }
 
 .previous-operand {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     height: 40px;
-    width: 300px;
-    
-    border: 1px solid black;
+    width: 290px;
 }
 
 .current-operand {
     display: flex;
     justify-content: flex-end;
-    align-items:center;
-    height: 60px;
-    width: 300px;
+    align-items: center;
+    height: 40px;
+    width: 290px;
     font-size: 40px;
-    
-    border: 1px solid red;
 }
 
 button {
     height: 50px;
     width: 70px;
-}
-
-.buttons {
-    flex-wrap: wrap;
-    margin-left: 2.3px;
-    
+    font-size: 15px;
 }
 
 .span-two {
@@ -65,3 +67,6 @@ button {
     width: 300px;
 }
 
+.numbers-operations {
+    margin-left: 3px;
+}

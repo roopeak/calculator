@@ -9,12 +9,13 @@ const currentOperand = document.querySelector('[data-current-operand]');
 const calcDisplay = document.querySelector('[data-calc-display]');
 
 
-let num1 = '';
-let num2 = '';
+let num1 = null;
+let num2 = null;
 let operator = null;
 
 
 allClearButton.addEventListener('click', clearScreen);
+deleteButton.addEventListener('click', delNum);
 
 
 operationButtons.forEach((button) => {
@@ -27,7 +28,7 @@ operationButtons.forEach((button) => {
 
 function operation() {
     num1 = currentOperand.textContent;
-    previousOperand.textContent = num1 + operator;
+    previousOperand.textContent = num1 + ' ' + operator;
     currentOperator = operator;
     clearCurrent();
 }
@@ -57,6 +58,7 @@ function appendNumber(number) {
 
 equalsButton.addEventListener('click', button => {
     num2 = currentOperand.textContent;
+    previousOperand.textContent = num1 + ' ' + operator + ' ' + num2 + ' =';
     currentOperand.textContent = operate(operator, num1, num2);
 });
 
@@ -66,9 +68,9 @@ function clearScreen() {
     previousOperand.textContent = '';
 }
 
-// TODO: Delete button to delete numbers.
-function delNum() {
 
+function delNum() {
+    currentOperand.textContent = currentOperand.textContent.toString().slice(0, -1);
 }
 
 function add(a, b) {
