@@ -11,7 +11,6 @@ let firstOperand = "";
 let secondOperand = "";
 let calcOperator = "";
 
-
 // Display
 const prevNumbers = document.querySelector(".display-prev-numbers");
 const currNumbers = document.querySelector(".display-curr-numbers");
@@ -20,7 +19,16 @@ const currNumbers = document.querySelector(".display-curr-numbers");
 for (let i = 0; i < numberBtn.length; i++) {
     let number = numberBtn[i].textContent
     numberBtn[i].addEventListener("click", function() {
+        
+        if (currNumbers.innerHTML.length == 15) {
+            return
+        }
+        
+        if (currNumbers.innerHTML.length == 0 && number == ".") {
+            return
+        } else {
         currNumbers.innerHTML += number
+        }
     })
 }
 
@@ -28,18 +36,24 @@ for (let i = 0; i < numberBtn.length; i++) {
 for (let i = 0; i < operatorBtn.length; i++) {
     let operator = operatorBtn[i].textContent
     operatorBtn[i].addEventListener("click", function() {
+
         firstOperand = parseFloat(currNumbers.innerHTML);
         calcOperator = operator;
-        currNumbers.innerHTML += operator;
+        currNumbers.innerHTML += " " + operator;
         prevNumbers.innerHTML += currNumbers.innerHTML;
         currNumbers.innerHTML = "";
+        
+        operatorBtn.forEach(elem => {
+            elem.disabled = true;
+        })
+
     })
 }
 
 // If user clicks equals
 equalsBtn.addEventListener("click", function() {
     secondOperand = parseFloat(currNumbers.innerHTML);
-    prevNumbers.innerHTML += currNumbers.innerHTML
+    prevNumbers.innerHTML += " " + currNumbers.innerHTML
     currNumbers.innerHTML = "";
     calculate()
 });
@@ -68,6 +82,14 @@ function calculate() {
         break;
     }
 
+    // Check if result is too long for the display
+    if (currNumbers.innerHTML.length > 15) {
+        string = currNumbers.innerHTML;
+        newString = string.substring(0, 15);
+        currNumbers.innerHTML = "";
+        currNumbers.innerHTML += newString + "...";
+    }
+
     // Prevent extra calculations by disabling buttons
     equalsBtn.disabled = true;
     deleteBtn.disabled = true;
@@ -75,18 +97,17 @@ function calculate() {
     numberBtn.forEach(elem => {
         elem.disabled = true;
     })
-
-    operatorBtn.forEach(elem => {
-        elem.disabled = true;
-    })
 }
 
+// Listen clear-button
 clearBtn.addEventListener("click", clearDisplay);
 
 // Clears display
 function clearDisplay() {
+
     currNumbers.innerHTML = "";
     prevNumbers.innerHTML = "";
+
     equalsBtn.disabled = false;
     deleteBtn.disabled = false;
 
@@ -96,10 +117,10 @@ function clearDisplay() {
 
     operatorBtn.forEach(elem => {
         elem.disabled = false;
-    })
-
+    }) 
 }
 
+// Listen delete-button
 deleteBtn.addEventListener("click", deleteNumber);
 
 // Erase last number
