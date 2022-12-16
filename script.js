@@ -2,15 +2,17 @@
 const clearBtn = document.querySelector(".clear");
 const delBtn = document.querySelector(".delete");
 
-const oneBtn = document.querySelector(".one");
-const twoBtn = document.querySelector(".two");
-const threeBtn = document.querySelector(".three");
-const fourBtn = document.querySelector(".four");
-const fiveBtn = document.querySelector(".five");
-const sixBtn = document.querySelector(".six");
-const sevenBtn = document.querySelector(".seven");
-const eightBtn = document.querySelector(".eight");
-const nineBtn = document.querySelector(".nine");
+const numberBtn = document.getElementsByClassName(".number");
+
+// const oneBtn = document.querySelector(".one");
+// const twoBtn = document.querySelector(".two");
+// const threeBtn = document.querySelector(".three");
+// const fourBtn = document.querySelector(".four");
+// const fiveBtn = document.querySelector(".five");
+// const sixBtn = document.querySelector(".six");
+// const sevenBtn = document.querySelector(".seven");
+// const eightBtn = document.querySelector(".eight");
+// const nineBtn = document.querySelector(".nine");
 
 const sumBtn = document.querySelector(".sum");
 const subtractBtn = document.querySelector(".subtract");
