@@ -16,15 +16,23 @@ body {
 
 .display-prev-numbers {
     height: 3em;
-    border: 1px solid black;
 }
 
 .display-curr-numbers {
     height: 3em;
-    border: 1px solid black;
 }
 
-.buttons {
-    display: grid;
-    
+.number,
+.operator,
+.equals {
+    height: 3em;
+    width: 5em;
+    margin-top: 0.4em;
+}
+
+.clear,
+.delete {
+    height: 3em;
+    width: 8em;
+    margin: 0.4em;
 }
