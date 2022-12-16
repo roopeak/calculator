@@ -1,30 +1,16 @@
 // Buttons
 const clearBtn = document.querySelector(".clear");
-const delBtn = document.querySelector(".delete");
+const deleteBtn = document.querySelector(".delete");
 
 const numberBtn = document.querySelectorAll(".number");
 const operatorBtn = document.querySelectorAll(".operator");
 const equalsBtn = document.querySelector(".equals");
 
+// Operands and operator for calculations
 let firstOperand = "";
 let secondOperand = "";
 let calcOperator = "";
 
-
-// const oneBtn = document.querySelector(".one");
-// const twoBtn = document.querySelector(".two");
-// const threeBtn = document.querySelector(".three");
-// const fourBtn = document.querySelector(".four");
-// const fiveBtn = document.querySelector(".five");
-// const sixBtn = document.querySelector(".six");
-// const sevenBtn = document.querySelector(".seven");
-// const eightBtn = document.querySelector(".eight");
-// const nineBtn = document.querySelector(".nine");
-
-// const sumBtn = document.querySelector(".sum");
-// const subtractBtn = document.querySelector(".subtract");
-// const divideBtn = document.querySelector(".divide");
-// const multiplyBtn = document.querySelector(".multiply");
 
 // Display
 const prevNumbers = document.querySelector(".display-prev-numbers");
@@ -38,6 +24,7 @@ for (let i = 0; i < numberBtn.length; i++) {
     })
 }
 
+// Listen which number button is pressed
 for (let i = 0; i < operatorBtn.length; i++) {
     let operator = operatorBtn[i].textContent
     operatorBtn[i].addEventListener("click", function() {
@@ -49,6 +36,7 @@ for (let i = 0; i < operatorBtn.length; i++) {
     })
 }
 
+// If user clicks equals
 equalsBtn.addEventListener("click", function() {
     secondOperand = parseFloat(currNumbers.innerHTML);
     prevNumbers.innerHTML += currNumbers.innerHTML
@@ -56,7 +44,16 @@ equalsBtn.addEventListener("click", function() {
     calculate()
 });
 
+// Calculates given expression
 function calculate() {
+
+    if (secondOperand == 0) {
+        equalsBtn.disabled = true;
+        deleteBtn.disabled = true;
+        return
+    }
+
+    // Switch-Case to determine operator
     switch (calcOperator) {
         case "+": currNumbers.innerHTML += firstOperand + secondOperand
         break;
@@ -71,13 +68,26 @@ function calculate() {
         break;
     }
 
+    // Prevent extra calculations for same operands.
     equalsBtn.disabled = true;
+    deleteBtn.disabled = true;
 }
 
 clearBtn.addEventListener("click", clearDisplay);
 
+// Clears display
 function clearDisplay() {
     currNumbers.innerHTML = "";
     prevNumbers.innerHTML = "";
     equalsBtn.disabled = false;
+    deleteBtn.disabled = false;
+}
+
+deleteBtn.addEventListener("click", deleteNumber);
+
+function deleteNumber() {
+    str = currNumbers.innerHTML;
+    strSliced = str.substring(0, str.length - 1);
+    currNumbers.innerHTML = "";
+    currNumbers.innerHTML += strSliced;
 }
