@@ -2,7 +2,7 @@
 const clearBtn = document.querySelector(".clear");
 const delBtn = document.querySelector(".delete");
 
-const numberBtn = document.getElementsByClassName(".number");
+let numberBtn = document.querySelectorAll(".number");
 
 // const oneBtn = document.querySelector(".one");
 // const twoBtn = document.querySelector(".two");
@@ -22,3 +22,11 @@ const multiplyBtn = document.querySelector(".multiply");
 // Display
 const prevNumbers = document.querySelector(".display-prev-numbers");
 const currNumbers = document.querySelector(".display-curr-numbers");
+
+
+for (let i = 0; i < numberBtn.length; i++) {
+    let number = numberBtn[i].textContent
+    numberBtn[i].addEventListener("click", function() {
+        currNumbers.innerHTML += number
+    })
+}
