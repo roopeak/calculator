@@ -68,9 +68,17 @@ function calculate() {
         break;
     }
 
-    // Prevent extra calculations for same operands.
+    // Prevent extra calculations by disabling buttons
     equalsBtn.disabled = true;
     deleteBtn.disabled = true;
+    
+    numberBtn.forEach(elem => {
+        elem.disabled = true;
+    })
+
+    operatorBtn.forEach(elem => {
+        elem.disabled = true;
+    })
 }
 
 clearBtn.addEventListener("click", clearDisplay);
@@ -81,10 +89,20 @@ function clearDisplay() {
     prevNumbers.innerHTML = "";
     equalsBtn.disabled = false;
     deleteBtn.disabled = false;
+
+    numberBtn.forEach(elem => {
+        elem.disabled = false;
+    })
+
+    operatorBtn.forEach(elem => {
+        elem.disabled = false;
+    })
+
 }
 
 deleteBtn.addEventListener("click", deleteNumber);
 
+// Erase last number
 function deleteNumber() {
     str = currNumbers.innerHTML;
     strSliced = str.substring(0, str.length - 1);
