@@ -1,0 +1,12 @@
+.display {
+	width: 50em;
+	height: 5em;
+	border: 1px solid black;
+}
+
+.current-number,
+.previous-number {
+	width: 50em;
+	height: 2em;
+	border: 1px solid black;
+}
