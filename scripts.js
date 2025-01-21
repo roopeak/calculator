@@ -24,17 +24,21 @@ operationButtons.forEach((button) => {
 
 eraseButton.addEventListener('click', () => eraseValue());
 clearButton.addEventListener('click', () => clearValues());
-equalButton.addEventListener('click', () => evaluate());
+equalButton.addEventListener('click', () => calculate());
 
 function addNumber(number) {
 	currentNumber.textContent += number;
 }
 
 function setOperation(operator) {
-	a = currentNumber.textContent;
+	console.log('This is an operator: ', operator);
+
+	if (currentNumber.textContent != '' && previousNumber.textContent != '') {
+		calculate();
+	}
+
 	currentOperator = operator;
-	previousNumber.textContent = `${a} ${currentOperator}`;
-	currentNumber.textContent = '';
+	calculate();
 }
 
 function add(a, b) {
@@ -54,6 +58,7 @@ function divide(a, b) {
 }
 
 function operate(operator, a, b) {
+	console.log(operator, a, b)
 	a = Number(a);
 	b = Number(b);
 
@@ -82,6 +87,10 @@ function clearValues() {
 		previousNumber.textContent = '';
 		clearCounter = 0;
 	}
+
+	a = '';
+	b = '';
+	currentOperator = '';
 }
 
 function eraseValue() {
@@ -92,13 +101,20 @@ function eraseValue() {
 	}
 }
 
-function evaluate() {
-	if (currentNumber.textContent === '') return;
-	b = currentNumber.textContent;
-	previousNumber.textContent = operate(currentOperator, a, b);
-	currentNumber.textContent = '';
-	// console.log('This is a: ', a, 'This is b: ', b)
-	// console.log(operate(currentOperator, a, b));
-	// console.log(`${a} ${currentOperator} ${b}`);
+function calculate() {
+	if (currentNumber.textContent === '' && previousNumber.textContent === '') {
+		return;
+	}
 
+	if (previousNumber.textContent === '') {
+		previousNumber.textContent = currentNumber.textContent;
+		a = previousNumber.textContent;
+		currentNumber.textContent = '';
+	} else if (currentNumber.textContent != '') {
+		a = previousNumber.textContent;
+		b = currentNumber.textContent;
+		console.log(a, b)
+		previousNumber.textContent = operate(currentOperator, a, b);
+		currentNumber.textContent = '';
+	}
 }
