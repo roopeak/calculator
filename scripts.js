@@ -14,17 +14,33 @@ const eraseButton = document.querySelector('.erase-btn');
 const clearButton = document.querySelector('.clear-btn');
 const equalButton = document.querySelector('.equal-btn');
 
+const firstRow = document.querySelectorAll('.first-row');
+
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => addNumber(button.textContent))
+  mouseOverButton(button);
 });
 
 operationButtons.forEach((button) => {
 	button.addEventListener('click', () => setOperation(button.textContent))
+	mouseOverButton(button);
 });
 
 eraseButton.addEventListener('click', () => eraseValue());
+eraseButton.addEventListener('mouseover', () => mouseOverButton)
 clearButton.addEventListener('click', () => clearValues());
 equalButton.addEventListener('click', () => calculate());
+
+function mouseOverButton(button) {
+	button.addEventListener('mouseover', () => {
+		button.style.backgroundColor = 'black';
+		button.style.color = 'white';
+	})
+	button.addEventListener('mouseout', () => {
+		button.style.backgroundColor = 'white';
+		button.style.color = 'black';
+	})
+}
 
 function addNumber(number) {
 	currentNumber.textContent += number;

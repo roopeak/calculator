@@ -1,23 +1,75 @@
+body  {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .calculator-container {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	width: 400px;
+	height: 535px;
+	border-radius: 30px;
+	background-color: blanchedalmond;
+	border: 2px solid black;
 }
 
 .display {
-	width: 50em;
-	height: 5em;
-	border: 1px solid black;
+	padding-top: 2.5em;
 }
 
 .current-number,
 .previous-number {
-	width: 50em;
-	height: 2em;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	padding-right: 10px;
+	width: 300px;
+	background-color: white;
 	border: 1px solid black;
+}
+
+.current-number {
+	height: 60px;
+	font-size: 40px;
+}
+
+.previous-number {
+	height: 40px;
+	font-size: 20px;
 }
 
 .buttons-container {
 	display: flex;
 	flex-direction: column;
+	text-align: center;
+	padding-top: 20px;
+	width: 340px;
+	height: 300px;
+	gap: 5px;
+}
+
+button {
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: white;
+}
+
+.num-btn,
+.operation-btn,
+.equal-btn,
+.dot-btn {
+	width: 80px;
+	height: 60px;
+}
+
+.erase-btn,
+.clear-btn {
+	width: 100px;
+	height: 60px;
+}
+
+.first-row {
+	padding-bottom: 20px;
 }
