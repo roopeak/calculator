@@ -14,6 +14,7 @@ const eraseButton = document.querySelector('.erase-btn');
 const clearButton = document.querySelector('.clear-btn');
 const equalButton = document.querySelector('.equal-btn');
 
+// Button listeners
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => addNumber(button.textContent))
   mouseOverButton(button);
@@ -35,7 +36,6 @@ eraseButton.addEventListener('mouseout', () => {
 	eraseButton.style.backgroundColor = 'white';
 	eraseButton.style.color = 'black';
 })
-
 
 clearButton.addEventListener('click', () => clearValues());
 
@@ -77,8 +77,6 @@ function addNumber(number) {
 }
 
 function setOperation(operator) {
-	console.log('This is an operator: ', operator);
-
 	if (currentNumber.textContent != '' && previousNumber.textContent != '') {
 		calculate();
 	}
@@ -104,7 +102,6 @@ function divide(a, b) {
 }
 
 function operate(operator, a, b) {
-	console.log(operator, a, b)
 	a = Number(a);
 	b = Number(b);
 
@@ -159,7 +156,6 @@ function calculate() {
 	} else if (currentNumber.textContent != '') {
 		a = previousNumber.textContent;
 		b = currentNumber.textContent;
-		console.log(a, b)
 		previousNumber.textContent = operate(currentOperator, a, b);
 		currentNumber.textContent = '';
 	}
