@@ -14,8 +14,6 @@ const eraseButton = document.querySelector('.erase-btn');
 const clearButton = document.querySelector('.clear-btn');
 const equalButton = document.querySelector('.equal-btn');
 
-const firstRow = document.querySelectorAll('.first-row');
-
 numberButtons.forEach((button) => {
   button.addEventListener('click', () => addNumber(button.textContent))
   mouseOverButton(button);
@@ -27,9 +25,41 @@ operationButtons.forEach((button) => {
 });
 
 eraseButton.addEventListener('click', () => eraseValue());
-eraseButton.addEventListener('mouseover', () => mouseOverButton)
+
+eraseButton.addEventListener('mouseover', () => {
+	eraseButton.style.backgroundColor = 'black';
+	eraseButton.style.color = 'white';
+})
+
+eraseButton.addEventListener('mouseout', () => {
+	eraseButton.style.backgroundColor = 'white';
+	eraseButton.style.color = 'black';
+})
+
+
 clearButton.addEventListener('click', () => clearValues());
+
+clearButton.addEventListener('mouseover', () => {
+	clearButton.style.backgroundColor = 'black';
+	clearButton.style.color = 'white';
+})
+
+clearButton.addEventListener('mouseout', () => {
+	clearButton.style.backgroundColor = 'white';
+	clearButton.style.color = 'black';
+})
+
 equalButton.addEventListener('click', () => calculate());
+
+equalButton.addEventListener('mouseover', () => {
+	equalButton.style.backgroundColor = 'black';
+	equalButton.style.color = 'white';
+})
+
+equalButton.addEventListener('mouseout', () => {
+	equalButton.style.backgroundColor = 'white';
+	equalButton.style.color = 'black';
+})
 
 function mouseOverButton(button) {
 	button.addEventListener('mouseover', () => {
