@@ -73,6 +73,14 @@ function mouseOverButton(button) {
 }
 
 function addNumber(number) {
+	if (number === '.') {
+		if (currentNumber.textContent.includes(number)) {
+			return;
+		} else if (currentNumber.textContent === '') {
+			currentNumber.textContent += '0';
+		}
+	}
+
 	currentNumber.textContent += number;
 }
 
