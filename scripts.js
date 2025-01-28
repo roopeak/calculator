@@ -49,7 +49,11 @@ clearButton.addEventListener('mouseout', () => {
 	clearButton.style.color = 'black';
 })
 
-equalButton.addEventListener('click', () => calculate());
+equalButton.addEventListener('click', () => {
+	if (currentOperator != '') {
+		calculate();
+	}
+});
 
 equalButton.addEventListener('mouseover', () => {
 	equalButton.style.backgroundColor = 'black';
