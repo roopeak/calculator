@@ -77,6 +77,10 @@ function mouseOverButton(button) {
 }
 
 function addNumber(number) {
+	if (currentNumber.textContent.length === 12) {
+		return;
+	}
+
 	if (number === '.') {
 		if (currentNumber.textContent.includes(number)) {
 			return;
